@@ -1,0 +1,34 @@
+pipeline{
+   agent any
+
+   tools{
+    maven 'Maven'
+   }
+    stages{
+
+
+         stage("Test Application"){
+            steps{
+                bat "mvn test"
+            }
+            
+        }
+
+        stage("Package Application"){
+            steps{
+              bat "mvn package"
+            }
+            
+        }
+
+          stage("Deploy to the container"){
+            steps{
+              echo "deployed to the container"
+            }
+            
+        }
+             
+        }
+
+    }
+   
